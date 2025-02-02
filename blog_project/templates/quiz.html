@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls and Quizzes</title>
+    <link rel="stylesheet" href="poll.css">
+    <style>
+        body { font-family:'Courier New', Courier, monospace; text-align: center; }
+        .quiz-option { margin: 10px 0; display: block; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Quiz: What does HTML stand for?</h2>
+    <form id="quizForm">
+        <label class="quiz-option"><input type="radio" name="quiz" value="Hyper Text Markup Language"> Hyper Text Markup Language</label>
+        <label class="quiz-option"><input type="radio" name="quiz" value="High Tech Modern Language"> High Tech Modern Language</label>
+        <label class="quiz-option"><input type="radio" name="quiz" value="Hyperlink Transfer Management Language"> Hyperlink Transfer Management Language</label>
+        <button type="button" onclick="submitQuiz()">Submit Answer</button>
+    </form>
+    <div id="quizResult" class="hidden">
+        <h3 id="quizMessage"></h3>
+    </div>
+</div>
+<script>function submitQuiz() {
+    let selectedOption = document.querySelector('input[name="quiz"]:checked');
+    if (!selectedOption) {
+        alert("Please select an answer before submitting.");
+        return;
+    }
+    let correctAnswer = "Hyper Text Markup Language";
+    let resultMessage = (selectedOption.value === correctAnswer) ? "Correct! 🎉" : "Wrong answer. Try again!";
+    document.getElementById("quizMessage").innerText = resultMessage;
+    document.getElementById("quizResult").classList.remove("hidden");
+}
+</script>
+</body>

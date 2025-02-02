@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls and Quizzes</title>
+    <link rel="stylesheet" href=".css">
+    <style>
+        body { font-family:'Courier New', Courier, monospace; text-align: center; }
+        .container {
+        width: 60%;
+        margin: auto;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        }
+        .poll-option {
+        margin: 10px 0;
+        display: block; }
+        .result-bar {
+        height: 20px;
+        background-color: #4CAF50;
+        text-align: right;
+        padding-right: 5px;
+        color: white;
+        }
+        .hidden {
+        display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Poll: What's your favorite genre movie?</h2>
+        <form id="pollForm">
+            <label class="poll-option"><input type="radio" name="vote" value="Romantic"> Romantic </label>
+            <label class="poll-option"><input type="radio" name="vote" value="Horror"> Horror</label>
+            <label class="poll-option"><input type="radio" name="vote" value="Comedy"> Comedy</label>
+            <label class="poll-option"><input type="radio" name="vote" value="Action"> Action</label>
+            <button type="button" onclick="submitVote()">Vote</button>
+        </form>
+        <div id="pollResults" class="hidden">
+            <h3>Poll Results:</h3>
+            <div id="resultRomantic" class="result-bar" style="width:0%">0%</div>
+            <div id="resultHorror" class="result-bar" style="width:0%">0%</div>
+            <div id="resultComedy" class="result-bar" style="width:0%">0%</div>
+            <div id="resultAction" class="result-bar" style="width:0%">0%</div>
+        </div>
+    </div>
+
+    
+    <script>
+        let votes = { Romantic: 0, Horror: 0, Comedy: 0, Action: 0 };
+
+        function submitVote() {
+            let selectedOption = document.querySelector('input[name="vote"]:checked');
+            if (!selectedOption) {
+                alert("Please select an option before voting.");
+                return;
+            }
+            votes[selectedOption.value]++;
+            displayResults();
+        }
+
+        function displayResults() {
+            let totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+            if (totalVotes === 0) return;
+
+            document.getElementById("pollResults").classList.remove("hidden");
+            Object.keys(votes).forEach(key => {
+                let percentage = (votes[key] / totalVotes) * 100;
+                document.getElementById("result" + key).style.width = percentage + "%";
+                document.getElementById("result" + key).innerText = Math.round(percentage) + "%";
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,60 +1,63 @@
-# [Project Name] 🎯
+# My Blog Website 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Team4
 
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: Sneha Jayaprakash - College of Engineering, Kallooppara, Thiruvalla, Pathanamthitta
+- Member 2: Janet Treesa John - College of Engineering, Kallooppara, Thiruvalla, Pathanamthitta
+- Member 3: Nil - Nil
 
 ### Hosted Project Link
-[mention your project hosted project link here]
+file:///C:/Users/jimmy/tink-her-hack-3-temp/blog_project/templates/index.html
 
 ### Project Description
-[2-3 lines about what your project does]
+A blogging website where we can we share our thoughts and creative ideas easily. It also has polls and quizzes for readers and writers to engage with.
 
 ### The Problem statement
-[What ridiculous problem are you solving?]
+A website for people to post their thoughts anonymously.
 
 ### The Solution
-[How are you solving it? Keep it fun!]
+The website does not ask users to login to post anything. It provides a sense of anonymity.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- HTML, CSS, Python
+- Flask
+- flask ,flask-SQLAlchemy, Werkzeug 
+- Front-end tools-HTML,CSS Back-end tools-flask,python,SQLAlchemy Database Tools-MySQL 
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+-  CPU ,RAM ,Stoarage,Processor
+-  12th Gen Intel(R) Core(TM) i3-1215U   1.20 GHz,8.00 GB (7.68 GB usable)
+-  Mouse ,keyboard
 
 ### Implementation
-For Software:
+For Software: VSCode,Github,Google Chrome Devtools
 # Installation
-[commands]
+pip install flask
+pip install Flask-SQLAlchemy
+pip install Flask-WTF
+pip install werkzeug
 
 # Run
-[commands]
+python app.py
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![alt text](<Screenshot (7).png>)
+This is home page showing lateset blogs.It also contains create post ,polls,latest blog  and daily quiz hyperlinks.
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![alt text](<Screenshot (8).png>)
+This page displaying latest blog post.
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![alt text](<Screenshot (9).png>)
+This page shows th
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)

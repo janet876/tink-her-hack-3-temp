@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog posts website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>My Blog</h1>
+        <a href="index.html">Home</a>
+    </nav>
+
+    <div class="form-container">
+        <h1>Create a new post</h1>
+        <!-- Single form for both text and image -->
+        <form id="postForm" enctype="multipart/form-data">
+            <input type="text" id="title" placeholder="Post title" required><br><br>
+            <textarea id="content" placeholder="Enter your thoughts!" rows="10" required></textarea><br><br>
+           
+            <!-- Image upload (optional) -->
+            <label for="imgUpload">Add an image (Optional):</label>
+            <input type="file" name="image" id="imgUpload" accept="image/*"><br><br>
+
+            <button type="submit">Post!</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("postForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent page refresh
+
+            // Gather form data
+            let formData = new FormData();
+            formData.append("title", document.getElementById("title").value);
+            formData.append("content", document.getElementById("content").value);
+
+            // Append the image if it exists
+            let imageInput = document.getElementById("imgUpload");
+            if (imageInput.files[0]) {
+                formData.append("image", imageInput.files[0]);
+            }
+
+            // Send the data to the Flask backend
+            fetch("http://127.0.0.1:5000/posts", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success message
+                location.reload(); // Refresh page to show the new post
+            })
+            .catch(error => console.error("Error adding post:", error));
+        });
+    </script>
+</body>
+</html>
